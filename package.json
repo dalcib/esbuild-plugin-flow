@@ -1,0 +1,23 @@
+{
+  "name": "esbuild-plugin-flow",
+  "version": "0.1.0",
+  "description": "Esbuild plugin to strip types for Flow files",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalcib/esbuild-plugin-flow.git"
+  },
+  "keywords": [],
+  "author": "Dalci de Jesus Bagolin <dalci.b+npm@gmail.com> (https://github.org/dalcib)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalcib/esbuild-plugin-flow/issues"
+  },
+  "homepage": "https://github.com/dalcib/esbuild-plugin-flow#readme",
+  "dependencies": {
+    "flow-remove-types": "^2.137.0"
+  }
+}

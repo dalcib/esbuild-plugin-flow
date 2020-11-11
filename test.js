@@ -14,10 +14,10 @@ async function test(code) {
   })
   //console.log(result.outputFiles[0].text.trim(), output.trim())
 
-  /* assert(
+  assert(
     result.outputFiles[0].text.trim() === output.trim(),
     `\n${result.outputFiles[0].text} ${output.trim()}`
-  ) */
+  )
   console.log('Ok')
 }
 
