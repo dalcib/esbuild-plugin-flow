@@ -18,29 +18,12 @@ async function test(id, file, conf) {
   const isFlow = !!bundle.match(reFlow)
   try {
     assert(isFlow === false, new Error())
-    console.log('OK:', id, conf)
+    console.log('✅', id, conf)
   } catch (e) {
-    console.error('Error', id, conf, ' ', e, isFlow)
+    console.error('❌', id, conf, ' ', e, isFlow)
   }
 }
 
-//test(0, 'tests/main.js') //expected error
-test(1, 'tests/main.js', { include: ['.'] })
-test(2, 'tests/main.js', { include: ['tests/file1.flow.js', 'tests/file2.flow.js'] })
-test(3, 'tests/main.js', { regexp: /\.flow\.jsx?$/ })
-test(4, 'tests/main.js', {
-  include: ['tests/file1.flow.js', 'tests/file2.flow.js'],
-  regexp: /\.flow\.jsx?$/,
-})
-test(5, 'tests/main.js', {
-  include: ['tests/file1.flow.js', 'tests/file2.flow.js'],
-  packages: ['flow-pkg'],
-})
-test(6, 'tests/mainTestPkg.js', {
-  include: ['tests/file1.flow.js'],
-  packages: ['flow-pkg'],
-})
-test(6, 'tests/mainTestPkg.js', {
-  include: ['.'],
-  packages: ['flow-pkg'],
-})
+test(1, 'tests/main.js', /\.jsx?$/)
+test(2, 'tests/main.js', /\.flow\.jsx?$/)
+test(3, 'tests/mainTestPkg.js', /node_modules\\flow-pkg.*\.jsx?$|\.flow\.jsx?$/)

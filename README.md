@@ -20,38 +20,32 @@ esbuild
     entryPoints: ["index.js"],
     outfile: "dist/bundle.js",
     bundle: true,
-    plugins: [
-      flow({
-        //include: ['.'],
-        //packages: ['flow-package', 'other-flow/src/index.js']
-        regexp: /\.flow\.jsx?$/,
-      }),
-    ],
+    plugins: [flow(/\.flow\.jsx?$/)],
   })
   .catch(() => process.exit(1));
 ```
 
 ## Options
 
-The plugin needs a configuration object with at least one option defined. 
+The plugin needs a RegExp to define:
 
+####  a) paths or packages to be included
+```javascript
+ /node_modules\\package.*\.jsx?$/
 ```
-{
-  include?: string[],
-  packages?: string[],
-  regexp?: RegExp
-}
+
+#### b) extentions
+```javascript
+ /\.flow\.jsx?$/
 ```
-#### include
-List of relative or absolute paths of files
-Type: `string[]` Default: `[]`
 
-#### packages
-List of packages
-Type: `string[]` Default: `[]`
+#### c) a combination of both
+```javascript
+ /node_modules\\package1.*\.jsx?$|node_modules\\package2.*\.jsx?$|\.flow\.jsx?$/
+```
 
-#### regexp
-RegExp to filter the files
-Type `RegExp` Default `/$^/` 
+## Entry Point
+Due to limitations of Esbuild, the entry point is not processed.
 
-To include all files use the option `{include: [.]}` or `{regexp: /.jsx?$/}`
+## Tests
+For test, copy the folder `flow-pkg` to node_modules and run `node tests/test`

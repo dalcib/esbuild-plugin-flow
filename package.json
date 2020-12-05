@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-flow",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Esbuild plugin to strip types for Flow files",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,6 @@
     "flow-remove-types": "^2.137.0"
   },
   "devDependencies": {
-    "esbuild": "^0.8.7",
-    "flow-pkg": "0.1.0"
+    "esbuild": "^0.8.7"
   }
 }
