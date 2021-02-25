@@ -13,7 +13,7 @@ module.exports = (regexp = /$^/) => {
         }
         return {
           contents: output.toString(),
-          loader: 'js',
+          loader: 'jsx',
         }
       })
     },
