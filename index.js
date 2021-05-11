@@ -15,8 +15,9 @@ module.exports = (regexp = /$^/, force) => {
             output = flowRemoveTypes(source, { pretty: true })
           }
         }
+        const contents = output.toString().replace(/static\s+\+/g, 'static ')
         return {
-          contents: output.toString(),
+          contents,
           loader: 'jsx',
         }
       })
