@@ -1,0 +1,6 @@
+const fn1 = require('./file1.flow.js')
+const fn2 = require('./file3.flow.js')
+const fn3 = require('./file3.js')
+console.log(fn1(1, 2, 3))
+console.log(fn2(1, 2, 3))
+console.log(fn3(1, 2, 3))
