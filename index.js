@@ -1,12 +1,12 @@
 var flowRemoveTypes = require('flow-remove-types')
-var { readFile } = require('fs').promises
+var { readFileSync } = require('fs')
 
 module.exports = (regexp = /$^/, force) => {
   return {
     name: 'flow',
     setup(build) {
       build.onLoad({ filter: regexp }, async (args) => {
-        const source = await readFile(args.path, 'utf8')
+        const source = readFileSync(args.path, 'utf8')
         let output = source
         if (force) {
           output = flowRemoveTypes('// @flow\n' + source, { pretty: true })
